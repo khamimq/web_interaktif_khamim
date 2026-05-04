@@ -1,0 +1,161 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="text-center">Kuis Multimedia</h4>
+      <div id="quiz-container"></div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <h5>🏆 Leaderboard</h5>
+    <ul id="leaderboard" class="list-group"></ul>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "Sudut kamera obyektif adalah ...",
+    options: [
+      "Kamera sebagai mata penonton dalam adegan",
+      "Kamera dari sudut pandang outsider",
+      "Kamera berganti tempat dengan tokoh",
+      "Kamera sebagai mata tak terlihat",
+      "Kamera di sisi pemain subjektif"
+    ],
+    answer: 1
+  },
+  {
+    q: "Bird Eye View adalah pengambilan dari ...",
+    options: ["Atas","Bawah","Belakang","Depan","Samping"],
+    answer: 0
+  },
+  {
+    q: "Gerakan kamera menyamping sejajar disebut ...",
+    options: ["Tracking","Pedestal","Tilt","Crab","Dolly"],
+    answer: 3
+  },
+  {
+    q: "Crane adalah ...",
+    options: [
+      "Naik turun tripod",
+      "Geser kanan kiri",
+      "Memutar objek",
+      "Zoom",
+      "Naik turun dengan katrol"
+    ],
+    answer: 4
+  },
+  {
+    q: "Gerakan horizontal kiri-kanan disebut ...",
+    options: ["Tracking","Pedestal","Tilt","Pan","Dolly"],
+    answer: 3
+  },
+  {
+    q: "Memperbesar objek disebut ...",
+    options: ["Tracking","Zooming","Zoom in","Zoom out","Pedestal"],
+    answer: 2
+  },
+  {
+    q: "Gerakan vertikal kamera disebut ...",
+    options: ["Tracking","Zooming","Tilt up","Tilt down","Tilting"],
+    answer: 4
+  },
+  {
+    q: "Kamera dari bawah ke atas disebut ...",
+    options: ["Normal","High","Low","Bird Eye","Subjektif"],
+    answer: 2
+  },
+  {
+    q: "Sudut kamera miring disebut ...",
+    options: ["Bird eye","Frog","Low","Eye","Dutch"],
+    answer: 4
+  },
+  {
+    q: "Gambar sangat jauh disebut ...",
+    options: ["Extreme Close Up","Extreme Long Shot","Long Shot","Medium Long Shot","Full Shot"],
+    answer: 1
+  }
+];
+
+let current = 0;
+let score = 0;
+let userAnswers = [];
+
+function loadQuestion() {
+  const q = questions[current];
+  let html = `<h5>Soal ${current + 1}</h5>`;
+  html += `<p>${q.q}</p>`;
+
+  q.options.forEach((opt, i) => {
+    html += `
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="answer" value="${i}">
+        <label class="form-check-label">${opt}</label>
+      </div>
+    `;
+  });
+
+  html += `<button class="btn btn-primary mt-3" onclick="nextQuestion()">Next</button>`;
+  document.getElementById("quiz-container").innerHTML = html;
+}
+
+function nextQuestion() {
+  const selected = document.querySelector('input[name="answer"]:checked');
+  if (!selected) {
+    alert("Pilih jawaban dulu!");
+    return;
+  }
+
+  const answer = parseInt(selected.value);
+  userAnswers.push(answer);
+
+  if (answer === questions[current].answer) {
+    score++;
+  }
+
+  current++;
+
+  if (current < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  let html = `
+    <h4>Hasil Kuis</h4>
+    <p>Skor Anda: <strong>${score}</strong> / ${questions.length}</p>
+    <input type="text" id="username" class="form-control" placeholder="Masukkan Nama">
+    <button class="btn btn-success mt-3" onclick="saveScore()">Simpan Skor</button>
+  `;
+  document.getElementById("quiz-container").innerHTML = html;
+}
+
+function saveScore() {
+  const name = document.getElementById("username").value;
+  if (!name) return alert("Isi nama!");
+
+  let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+  leaderboard.push({name, score});
+  leaderboard.sort((a,b)=>b.score-a.score);
+
+  localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+  showLeaderboard();
+}
+
+function showLeaderboard() {
+  let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+  let html = "";
+
+  leaderboard.slice(0,10).forEach((p,i)=>{
+    html += `<li class="list-group-item">${i+1}. ${p.name} - ${p.score}</li>`;
+  });
+
+  document.getElementById("leaderboard").innerHTML = html;
+}
+
+loadQuestion();
+showLeaderboard();
+</script>

@@ -49,7 +49,9 @@ function loadQuestion() {
       </div>
     `;
     document.getElementById("options").innerHTML = ''
-    // localStorage.setItem("tempAnswers", "");
+    const btn = document.getElementById("btn-next")
+    btn.disabled = true
+    localStorage.setItem("tempAnswers", "");
   }
 }
 
@@ -75,6 +77,9 @@ function nextQuestion() {
       </div>
     `;
     document.getElementById("options").innerHTML = ''
+    const btn = document.getElementById("btn-next")
+    btn.disabled = true
+    localStorage.setItem("tempAnswers", "");
   }
 }
 

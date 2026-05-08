@@ -27,7 +27,11 @@ function loadQuestion() {
   `;
     });
     document.getElementById("options").innerHTML = html;
-    let saved = JSON.parse(localStorage.getItem("tempAnswers")) || {};
+    let saved = {}
+    if(localStorage.getItem("tempAnswers") != ""){
+       saved= JSON.parse(localStorage.getItem("tempAnswers")) || {};
+    }
+    
     if (saved[current] !== undefined) {
       const selectedIndex = saved[current];
 
@@ -84,7 +88,10 @@ function selectOption(el, index) {
   const radio = el.querySelector("input");
   radio.checked = true;
     // ambil data lama
-   let answers = JSON.parse(localStorage.getItem("tempAnswers")) || {};
+    let answers = {}
+    if(localStorage.getItem("tempAnswers") != ""){
+      answers = JSON.parse(localStorage.getItem("tempAnswers")) || {};
+    }
   // simpan jawaban berdasarkan nomor soal
   answers[current] = index;
 

@@ -1,0 +1,104 @@
+[
+  {
+    "number": 1,
+    "question": "Sudut kamera obyektif adalah ...",
+    "options": [
+      "Kamera sebagai mata penonton dalam adegan",
+      "Kamera dari sudut pandang penonton outsider",
+      "Kamera berganti tempat dengan tokoh",
+      "Kamera sebagai mata tak terlihat",
+      "Kamera di sisi pemain subjektif"
+    ],
+    "answer": 1
+  },
+  {
+    "number": 2,
+    "question": "Bird Eye View adalah pengambilan gambar dari ...",
+    "options": ["Atas", "Bawah", "Belakang", "Depan", "Kanan dan kiri"],
+    "answer": 0
+  },
+  {
+    "number": 3,
+    "question": "Gerakan kamera menyamping sejajar dengan objek disebut ...",
+    "options": ["Tracking", "Pedestal", "Tilt", "Crab", "Dolly"],
+    "answer": 3
+  },
+  {
+    "number": 4,
+    "question": "Crane adalah ...",
+    "options": [
+      "Gerakan kamera naik turun di tripod",
+      "Gerakan kamera ke kanan kiri",
+      "Gerakan memutar objek",
+      "Zoom mendekat/menjauh",
+      "Gerakan kamera naik turun dengan katrol"
+    ],
+    "answer": 4
+  },
+  {
+    "number": 5,
+    "question": "Gerakan kamera horizontal kiri ke kanan disebut ...",
+    "options": ["Tracking", "Pedestal", "Tilt", "Pan", "Dolly"],
+    "answer": 3
+  },
+  {
+    "number": 6,
+    "question": "Gerakan lensa untuk mendekatkan objek adalah ...",
+    "options": ["Tracking", "Zooming", "Zoom in", "Zoom out", "Pedestal"],
+    "answer": 2
+  },
+  {
+    "number": 7,
+    "question": "Gerakan kamera vertikal disebut ...",
+    "options": ["Tracking", "Zooming", "Tilt up", "Tilt down", "Tilting"],
+    "answer": 4
+  },
+  {
+    "number": 8,
+    "question": "Kamera dari bawah ke atas disebut ...",
+    "options": ["Normal angle", "High angle", "Low angle", "Bird eye view", "Subjective"],
+    "answer": 2
+  },
+  {
+    "number": 9,
+    "question": "High angle adalah posisi kamera seperti pada gambar ...",
+    "options": ["A", "B", "C", "D", "E"],
+    "answer": 1
+  },
+  {
+    "number": 10,
+    "question": "Sudut kamera miring disebut ...",
+    "options": ["Bird eye level", "Frog level", "Low angle", "Eye level", "Dutch angle"],
+    "answer": 4
+  },
+  {
+    "number": 11,
+    "question": "Pengambilan gambar sangat jauh disebut ...",
+    "options": ["Extreme Close Up", "Extreme Long Shot", "Long Shot", "Medium Long Shot", "Full Shot"],
+    "answer": 1
+  },
+  {
+    "number": 12,
+    "question": "Menampilkan objek dari kepala sampai kaki disebut ...",
+    "options": ["Extreme Close Up", "Extreme Long Shot", "Long Shot", "Medium Long Shot", "Full Shot"],
+    "answer": 4
+  },
+  {
+    "number": 13,
+    "question": "Pengambilan gambar sekelompok orang disebut ...",
+    "options": ["Group shot", "Over shoulder shot", "One shot", "Two shot", "Three shot"],
+    "answer": 0
+  },
+  {
+    "number": 14,
+    "question": "Jenis pengambilan gambar pada soal gambar adalah ...",
+    "options": ["Close up", "Big Close up", "Medium Close up", "Extreme close up", "Medium shot"],
+    "answer": 2
+  },
+  {
+    "number": 15,
+    "question": "Pengambilan dari belakang objek disebut ...",
+    "options": ["Panning", "Tilting", "Profil Shot", "Over Shoulder Shot", "Follow"],
+    "answer": 3
+  }
+]

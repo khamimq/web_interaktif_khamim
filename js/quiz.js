@@ -2,6 +2,7 @@ let questions = [];
 let current = 0;
 let score = 0;
 let html = "";
+const dataUser = JSON.parse(user)
 
 function initQuiz() {
   fetch('data/quiz.json')
@@ -45,12 +46,32 @@ function loadQuestion() {
   } else {
     document.getElementById("question").innerHTML = `
       <div class="alert alert-success">
-        Skor: ${score} / ${questions.length}
+      <table>
+      <tr>
+        <td>Nama Siswa</td>
+        <td>:</td>
+        <td>${dataUser.nama}</td>
+      </tr>
+      <tr>
+        <td>Kelas</td>
+        <td>:</td>
+        <td>${dataUser.kelas}</td>
+      </tr>
+      <tr>
+        <td>Skor</td>
+        <td>:</td>
+        <td>${score} / ${questions.length}</td>
+      </tr>
+      </table>
+      <font color='red'>Note : screenshoot halaman ini kemudian kirimkan ke whatsapp berikut ini</font><br>
+      <a href='https://wa.me/6281216180607' class='btn btn-success'>Kirim Whatsapp</i></a>
       </div>
     `;
     document.getElementById("options").innerHTML = ''
     const btn = document.getElementById("btn-next")
     btn.disabled = true
+    const element = document.querySelector('#btn-next');
+    element.remove();
     localStorage.setItem("tempAnswers", "");
   }
 }
@@ -70,17 +91,38 @@ function nextQuestion() {
 
 
     loadQuestion();
-  } else {
-    document.getElementById("question").innerHTML = `
-      <div class="alert alert-success">
-        Skor: ${score} / ${questions.length}
-      </div>
-    `;
-    document.getElementById("options").innerHTML = ''
-    const btn = document.getElementById("btn-next")
-    btn.disabled = true
-    localStorage.setItem("tempAnswers", "");
   }
+  // } else {
+  //   document.getElementById("question").innerHTML = `
+  //     <div class="alert alert-success">
+  //     <table>
+  //     <tr>
+  //       <td>Nama Siswa next</td>
+  //       <td>:</td>
+  //       <td>${dataUser.nama}</td>
+  //     </tr>
+  //     <tr>
+  //       <td>Kelas</td>
+  //       <td>:</td>
+  //       <td>${dataUser.kelas}</td>
+  //     </tr>
+  //     <tr>
+  //       <td>Skor</td>
+  //       <td>:</td>
+  //       <td>${score} / ${questions.length}</td>
+  //     </tr>
+  //     </table>
+  //     <font color='red'>Note : screenshoot halaman ini kemudian kirimkan ke whatsapp berikut ini</font><br>
+  //     <a href='https://wa.me/6281216180607' class='btn btn-success'><i class="bi bi-whatsapp"></i></>
+  //     </div>
+  //   `;
+  //   document.getElementById("options").innerHTML = ''
+  //   const btn = document.getElementById("btn-next")
+  //   btn.disabled = true
+  //   const element = document.querySelector('#btn-next');
+  //   element.remove();
+  //   localStorage.setItem("tempAnswers", "");
+  // }
 }
 
 function selectOption(el, index) {
